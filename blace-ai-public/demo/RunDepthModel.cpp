@@ -1,0 +1,53 @@
+#include "RunDepthModel.h"
+#include "blace_ai.h"
+
+// include the models you want to use
+#include "depth_anything_v2_v5_small_v3_ALL_export_version_v10.h"
+
+cv::Mat blace::testing::runDepthModel() {
+
+  // register model at server
+  blace::util::registerModel(
+      depth_anything_v2_v5_small_v3_ALL_export_version_v10,
+      blace::util::getPathToExe());
+
+  // load image into op
+  auto exe_path = blace::util::getPathToExe();
+  std::filesystem::path photo_path = exe_path / "test_butterfly.jpg";
+  auto world_tensor_orig =
+      CONSTRUCT_OP_GET(blace::ops::FromImageFileOp(photo_path.string()));
+
+  // interpolate to size consumable by model
+  auto interpolated = CONSTRUCT_OP_GET(blace::ops::Interpolate2DOp(
+      world_tensor_orig, 700, 1288, ml_core::BICUBIC, false, true));
+
+  // normalize input. this will be gone in the public beta because we handle
+  // normalization automatically based on models metadata
+  auto normalized =
+      CONSTRUCT_OP_GET(blace::ops::NormalizeImagenetOp(interpolated));
+
+  // construct model inference arguments
+  ml_core::InferenceArgsCollection infer_args;
+  infer_args.inference_args.device = blace::util::get_accelerator().value();
+
+  // construct inference operation
+  auto infer_op = CONSTRUCT_OP_GET(blace::ops::InferenceOp(
+      depth_anything_v2_v5_small_v3_ALL_export_version_v10_IDENT, {normalized},
+      infer_args, 0));
+
+  // normalize depth to zero-one range
+  auto result_depth = CONSTRUCT_OP_GET(blace::ops::MapToRangeOp(infer_op));
+
+  // construct evaluator and evaluate to cv::Mat
+  computation_graph::GraphEvaluator evaluator(result_depth);
+  auto cv_result = evaluator.evaluateToCVMat().value();
+
+  // save to disk and return
+  auto out_file = exe_path / "depth_result.png";
+  cv::imwrite(out_file.string(), cv_result);
+
+  // unload all models before program exits
+  blace::util::unloadModels();
+
+  return cv_result.clone();
+}
