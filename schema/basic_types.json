@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "definitions": {
+    "DataType": {
+      "type": "string",
+      "description": "The data type of a given tensor.",
+      "enum": [
+        "INT_32",
+        "FLOAT_32",
+        "BLACE_BYTE",
+        "BLACE_BOOL",
+        "FLOAT_32_16",
+        "FLOAT_16",
+        "SHORT",
+        "INT_64",
+        "FLOAT_64"
+      ]
+    },
+    "NormalizationEnum": {
+      "type": "string",
+      "description": "Possible value ranges of a tensor.",
+      "enum": [
+        "ZERO_TO_ONE",
+        "MINUS_ONE_TO_ONE",
+        "IMAGENET",
+        "UNKNOWN_VALUE_RANGE",
+        "ZERO_TO_255",
+        "MINUS_0_5_TO_0_5"
+      ]
+    },
+    "Normalization": {
+      "type": "object",
+      "description": "Normalization / value range object.",
+      "properties": {
+        "norm": {
+          "$ref": "#/definitions/NormalizationEnum"
+        },
+        "allow_overflow": {
+          "type": "boolean",
+          "description": "Are values allowed to be outside of given range? E.g. can ZERO_TO_ONE tensor hold 1.1?"
+        }
+      }
+    },
+    "Order": {
+      "type": "string",
+      "description": "The ordering of the tensor. Use UNKNOWN_ORDER if order is not known.",
+      "enum": [
+        "BTCHW",
+        "BCHW",
+        "CHW",
+        "HWC",
+        "BHWC",
+        "HW",
+        "W",
+        "WC",
+        "C",
+        "BC",
+        "BWCH",
+        "BHW",
+        "BCH",
+        "CH",
+        "TBCHW",
+        "BCWH",
+        "BWHC",
+        "NO_DIMS",
+        "UNKNOWN_ORDER",
+        "BOUNDING_BOX_WITH_DIMS",
+        "THWC",
+        "TCHW"
+      ]
+    },
+    "ColorFormat": {
+      "type": "string",
+      "description": "The color format of the tensor.",
+      "enum": [
+        "RGB",
+        "R",
+        "A",
+        "ARGB",
+        "AB",
+        "ARBITRARY_CHANNELS",
+        "UV",
+        "LAB"
+      ]
+    },
+    "MetaTensor": {
+      "type": "object",
+      "description": "An object describing layout and characteristics of a tensor.",
+      "properties": {
+        "data_type": {
+          "$ref": "#/definitions/DataType"
+        },
+        "normalization": {
+          "$ref": "#/definitions/Normalization"
+        },
+        "color_format": {
+          "$ref": "#/definitions/ColorFormat"
+        },
+        "order": {
+          "$ref": "#/definitions/Order"
+        }
+      }
+    },
+    "Content": {
+      "type": "object",
+      "properties": {
+        "metaTensor": {
+          "$ref": "#/definitions/MetaTensor"
+        }
+      }
+    },
+    "ModelInputSize": {
+      "type": "object",
+      "description": "Object describing one dimension of a model input tensors shape.",
+      "properties": {
+        "modulo_by": {
+          "type": "integer",
+          "description": "Value the dimension has to be divisible by."
+        },
+        "min": {
+          "type": "integer",
+          "description": "Minimum size of this dimension."
+        },
+        "max": {
+          "type": "integer",
+          "description": "Maximum size of this dimension."
+        }
+      },
+      "required": [
+        "modulo_by",
+        "min",
+        "max"
+      ]
+    },
+    "ModelOutputSize": {
+      "type": "object",
+      "description": "Object describing how a specific output dimension can be constructed from the models inputs.",
+      "properties": {
+        "output_which_input": {
+          "description": "Nth model input.",
+          "type": "integer"
+        },
+        "output_which_index": {
+          "type": "integer",
+          "description": "Dimension index of the nth model input."
+        },
+        "output_fixed_size": {
+          "type": "integer",
+          "description": "This dimension always has a fixed size (e.g. 3 for C channel in rgb images)."
+        },
+        "output_ignore": {
+          "type": "boolean",
+          "description": "The size of this dimension cannot be evaluated lazily and is not known at construction time."
+        },
+        "output_multiplier_num": {
+          "type": "integer",
+          "description": "Use this together with output_multiplier_denom to specify a factor of resizing. E.g. a 4x superresolution model would output a tensor with H and W dimension 4 times bigger than the input."
+        },
+        "output_multiplier_denom": {
+          "type": "integer",
+          "description": "See description of output_multiplier_num."
+        }
+      }
+    },
+    "Input": {
+      "type": "object",
+      "description": "Describes one (of potentially several) model inputs.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the input."
+        },
+        "content": {
+          "$ref": "#/definitions/Content"
+        },
+        "inputSizes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelInputSize"
+          }
+        }
+      }
+    },
+    "Output": {
+      "type": "object",
+      "description": "Describes one (of potentially several) model outputs.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the output."
+        },
+        "content": {
+          "$ref": "#/definitions/Content"
+        },
+        "output_sizes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelOutputSize"
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "inputs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Input"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Output"
+      }
+    },
+    "torchscriptModel": {
+      "type": "object",
+      "description": "Properties for Torchscript model.",
+      "properties": {
+        "can_use_fp16": {
+          "type": "boolean",
+          "description": "Can this model run with half precision inference?"
+        }
+      }
+    }
+  }
+}
