@@ -11,7 +11,7 @@ Welcome to blace.ai — a high-performance C++ meta-inference library that abstr
   all major operating systems (Windows, MacOS Intel/Silicon and Linux).  
 - **AI-Framework-Agnostic:** blace.ai supports a growing list of frameworks and providers like Torchscript (CUDA and MPS) and ONNX (CPU and DirectML) out of the box.
 - **IPC & Process Isolation:**
-blace.ai can run workloads in separate isolated processes connected via high-performance inter-process communication ([IPC](https://blace-ai.github.io/blace-ai/md_ipc.html)).
+blace.ai can run workloads in separate isolated processes connected via high-performance inter-process communication ([IPC](https://blace-ai.github.io/blace-ai/ipc.html)).
 This architecture brings several advantages:
   - Crash Containment: AI backends are complex and can fail; isolation ensures such failures only stop the affected process, not your main application.
   - Memory Isolation: GPU and CPU memory usage is separated, preventing leaks from impacting the rest of the system.
