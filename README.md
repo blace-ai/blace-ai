@@ -23,7 +23,7 @@ This architecture brings several advantages:
   ![Screenshot](img/dag_example.svg) <br/><br/>
 - **Serializable:** Built-in serialization allows you to **save and transfer
   computation graphs**, making it easier to integrate with distributed systems and enabling seamless scaling across multiple nodes or environments.
-- **Smart models:** Models created with the [**Model Wizard**](https://blace-ai.github.io/blace-ai/md_model_wizard_creation.html) or 
+- **Smart models:** Models created with the [**Model Wizard**](https://blace-ai.github.io/blace-ai/model_wizard_creation.html) or 
   coming from the [Hub](https://www.blace.ai/hub/) store all needed configuration and 
   metadata about inputs and outputs. This eliminates the need to worry about proper model instantiation or tensor input formatting, such as memory order and sizes, streamlining the integration process.
 
@@ -48,7 +48,7 @@ To request integration of a specific model, please [open a ticket](https://githu
 
 ## Quick Start  
 
-Follow the [**Quickstart Guide**](https://blace-ai.github.io/blace-ai/md_quickstart.html#quickstart_demo) to run the first model within a few minutes.
+Follow the [**Quickstart Guide**](https://blace-ai.github.io/blace-ai/getting_started.html) to run the first model within a few minutes.
 
 Integrating AI models into your software should be simple. With Blace.ai, you can run AI model inference with just a few lines of code — across **Windows, Linux, and macOS**:  
 
