@@ -9,7 +9,7 @@ Products using blace.ai are already trusted in production and have been used by 
 
 
 
-📦 [**download sdk**](https://github.com/blace-ai/blace-ai/releases) | 🌐 [**blace.ai website**](https://blace.ai) | 📖 [**documentation**](https://blace-ai.github.io/blace-ai/) | 🧦 [**c++ model hub**]([https://www.blace.ai/hub/](https://github.com/blace-ai/hub)) | 💬 [**discord channel**](https://discord.com/channels/1202176342603616277/1318605344586338404)
+📦 [**download sdk**](https://github.com/blace-ai/blace-ai/releases) | 🌐 [**blace.ai website**](https://blace.ai) | 📖 [**documentation**](https://blace-ai.github.io/blace-ai/) | 🧦 [**c++ model hub**](https://github.com/blace-ai/hub) | 💬 [**discord channel**](https://discord.com/channels/1202176342603616277/1318605344586338404)
 
 ## Overview
 ![Screenshot](img/overview.svg) <br/><br/>
