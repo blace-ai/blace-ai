@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['backend_0',['Backend',['../types_8h.html#a239855ac72f96bdb44cbffeae07b40f9',1,'blace::ml_core']]],
+  ['backends_1',['backends',['../structblace_1_1ml__core_1_1ModelInferenceArgs.html#ae3d60e61fca29b633bc4466d9d26109b',1,'blace::ml_core::ModelInferenceArgs::backends'],['../index.html#autotoc_md5',1,'Inference Backends']]],
+  ['blace_20hub_20model_20versioning_2',['blace.hub Model Versioning',['../hub_model_versioning.html',1,'']]],
+  ['blace_5fai_5fipc_5fshow_5fconsole_3',['BLACE_AI_IPC_SHOW_CONSOLE',['../env_vars.html#autotoc_md34',1,'']]],
+  ['blacehash_4',['blacehash',['../structblace_1_1ml__core_1_1BlaceHash.html#ade7632fe875d5fabc10e1b020b7a7403',1,'blace::ml_core::BlaceHash::BlaceHash()'],['../structblace_1_1ml__core_1_1BlaceHash.html#aaf2b1d90785cb25e3f81edd72f0334c1',1,'blace::ml_core::BlaceHash::BlaceHash(int seed)'],['../structblace_1_1ml__core_1_1BlaceHash.html#a66a8330a3af4b0afa1d56c2a3564595d',1,'blace::ml_core::BlaceHash::BlaceHash(std::string str)'],['../structblace_1_1ml__core_1_1BlaceHash.html#a03821bc1fb842ade50f841fbfbb77c9e',1,'blace::ml_core::BlaceHash::BlaceHash(int64_t a, int64_t b, int64_t c, int64_t d)'],['../structblace_1_1ml__core_1_1BlaceHash.html',1,'blace::ml_core::BlaceHash']]],
+  ['blaceindex_5',['blaceindex',['../structblace_1_1ml__core_1_1BlaceIndex.html#a4bfe7b38e94d7a9d4e810716fa7b9850',1,'blace::ml_core::BlaceIndex::BlaceIndex(blace::ml_core::Slice slice)'],['../structblace_1_1ml__core_1_1BlaceIndex.html#afc505075eafee5e2f6e0aaac4e5dbae4',1,'blace::ml_core::BlaceIndex::BlaceIndex(blace::ops::OpP tensor)'],['../structblace_1_1ml__core_1_1BlaceIndex.html#a49d93cad195556bd1c729aae26d2109b',1,'blace::ml_core::BlaceIndex::BlaceIndex(int64_t integer)'],['../structblace_1_1ml__core_1_1BlaceIndex.html#a0c5cd9d9b30d42b121bfaf8d6929f772',1,'blace::ml_core::BlaceIndex::BlaceIndex()'],['../structblace_1_1ml__core_1_1BlaceIndex.html',1,'blace::ml_core::BlaceIndex']]],
+  ['bool_6',['Float / Int / Bool',['../model_wizard_creation.html#autotoc_md27',1,'']]],
+  ['building_7',['Graph building',['../index.html#autotoc_md4',1,'']]],
+  ['byte_5fmax_8',['BYTE_MAX',['../types_8h.html#a8e39aa0cead5a60a0839760a6072510f',1,'blace::ml_core']]],
+  ['byte_5fmax_5ffloat_9',['BYTE_MAX_FLOAT',['../types_8h.html#a0630537a71f9bcd6f3ac89ca8f6a8417',1,'blace::ml_core']]]
+];
