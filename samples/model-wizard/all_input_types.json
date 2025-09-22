@@ -1,0 +1,62 @@
+{
+  "inputs": [
+    {
+      "name": "img",
+      "content": {
+        "metaTensor": {
+          "data_type": "FLOAT_32",
+          "normalization": {
+            "norm": "IMAGENET",
+            "allow_overflow": true
+          },
+          "order": "BCHW",
+          "color_format": "RGB"
+        }
+      },
+      "inputSizes": []
+    },
+    {
+      "name": "int_input",
+      "content": {
+        "integerEntry": 42
+      },
+      "inputSizes": []
+    },
+    {
+      "name": "bool_input",
+      "content": {
+        "boolEntry": true
+      },
+      "inputSizes": []
+    },
+    {
+      "name": "float_input",
+      "content": {
+        "floatEntry": 15.2
+      },
+      "inputSizes": []
+    }
+  ],
+  "outputs": [
+    {
+      "name": "depth",
+      "content": {
+        "metaTensor": {
+          "data_type": "FLOAT_32",
+          "normalization": {
+            "norm": "UNKNOWN_VALUE_RANGE",
+            "allow_overflow": true
+          },
+          "order": "BHW",
+          "color_format": "R"
+        }
+      },
+      "output_sizes": [
+
+      ]
+    }
+  ],
+  "torchscriptModel": {
+    "can_use_fp16": true
+  }
+}
