@@ -1,0 +1,90 @@
+{
+  "inputs": [
+    {
+      "name": "img",
+      "content": {
+        "metaTensor": {
+          "data_type": "FLOAT_32",
+          "normalization": {
+            "norm": "IMAGENET",
+            "allow_overflow": true
+          },
+          "order": "BCHW",
+          "color_format": "RGB"
+        }
+      },
+      "inputSizes": [
+        {
+          "modulo_by": 1,
+          "min": 1,
+          "max": 64
+        },
+        {
+          "modulo_by": 1,
+          "min": -1,
+          "max": -1
+        },
+        {
+          "modulo_by": 14,
+          "min": 1,
+          "max": 8196
+        },
+        {
+          "modulo_by": 14,
+          "min": 1,
+          "max": 8196
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "depth",
+      "content": {
+        "metaTensor": {
+          "data_type": "FLOAT_32",
+          "normalization": {
+            "norm": "UNKNOWN_VALUE_RANGE",
+            "allow_overflow": true
+          },
+          "order": "BHW",
+          "color_format": "R"
+        }
+      },
+      "output_sizes": [
+        {
+          "output_fixed_size": -1,
+          "output_which_input": 0,
+          "output_which_index": 0,
+          "output_ignore": false,
+          "output_multiplier_num": 1,
+          "output_multiplier_denom": 1
+        },
+        {
+          "output_fixed_size": -1,
+          "output_which_input": 0,
+          "output_which_index": 2,
+          "output_ignore": false,
+          "output_multiplier_num": 1,
+          "output_multiplier_denom": 1
+        },
+        {
+          "output_which_index": 3,
+          "output_fixed_size": -1,
+          "output_which_input": 0,
+          "output_ignore": false,
+          "output_multiplier_num": 1,
+          "output_multiplier_denom": 1
+        }
+      ]
+    }
+  ],
+  "backends": [
+        "TORCHSCRIPT_CUDA_FP32",
+        "TORCHSCRIPT_CUDA_FP16",
+        "TORCHSCRIPT_MPS_FP16",
+        "TORCHSCRIPT_MPS_FP32",
+        "ONNX_CPU_FP32",
+        "ONNX_DML_FP32"
+    ]
+}
