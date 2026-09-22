@@ -1,0 +1,45 @@
+## Preamble — Licensing Overview
+This software distribution contains two types of components, each covered by a different license:
+
+1. **MIT-licensed source code** — Headers, examples, and any files explicitly marked as MIT are open-source under the permissive MIT License.  
+2. **Proprietary binaries** — All compiled libraries (`.dll`, `.lib`, `.so`, `.dylib`), models, and other compiled assets are **not open-source** and are provided under the Proprietary Binary License below.
+
+You must comply with the terms of the license applicable to each component.
+
+---
+
+## Section 1 — MIT License (for source code portions)
+
+Copyright 2025 blace.ao
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+**Applies to:**  
+- All files in `/include`, `/demo` and `/samples` directories  
+- Any source code files explicitly marked as MIT in their file headers  
+
+---
+
+## Section 2 — Proprietary Binary License (for compiled components)
+
+**Applies to:**  
+- All compiled `.dll`, `.lib`, `.so`, `.dylib` binaries, executables and binary model files (called "Binaries")
+
+**Grant of License:**  
+You are granted a non-exclusive, non-transferable, revocable license to use the Binaries solely for integrating and running applications that use the Blace.ai SDK. You may distribute the Binaries only when bundled within your compiled applications, and never on a stand-alone basis.
+
+**Restrictions:**  
+You may not:  
+1. Reverse-engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Binaries, except to the extent required by applicable law.  
+2. Redistribute, sublicense, rent, lease, or otherwise make the Binaries available separately from your compiled application.
+
+**Ownership:**  
+The Binaries are and shall remain the sole property of Blace.ai. All rights not expressly granted to you are reserved.
+
+**Warranty Disclaimer and Limitation of Liability:**  
+The Binaries are provided “AS IS,” without warranty of any kind. In no event shall Blace.ai or its authors be liable for any damages arising from the use of the Binaries.
+
